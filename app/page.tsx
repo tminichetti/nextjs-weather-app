@@ -1,36 +1,24 @@
-"use client"
-
-import getWeatherData from '@/actions/getWeatherData';
+import getForecastData from '@/actions/getForecastData';
 import CurrentWeather from '@/components/widgets/CurrentWeather';
+import Forecast from '@/components/widgets/Forecast';
+import HourlyWeather from '@/components/widgets/HourlyWeather';
 import { DEFAULT_LOCATION } from '@/lib/config';
-import * as React from 'react';
-import { useEffect, useState } from 'react';
-import Map from 'react-map-gl';
 
 export default async function Home() {
 
-  const [location] = useState<{ latitude: number, longitude: number }>(DEFAULT_LOCATION.coord);
+  const location = DEFAULT_LOCATION.coord;
 
-  // useEffect(() => {
-  //   if ('geolocation' in navigator) {
-  //     // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
-  //     navigator.geolocation.getCurrentPosition(({ coords }) => {
-  //       const { latitude, longitude } = coords;
-  //       setLocation({ latitude, longitude });
-  //     })
-  //   }
-  // }, [])
-
-  const HourlyDataRequest: any = await getWeatherData({
+  const forecast: any = await getForecastData({
     latitude: location.latitude,
     longitude: location.longitude
   })
 
-  if (!location || !HourlyDataRequest) return null
+  if (!location || !forecast) return null
 
   return (
-    <div>
-      <CurrentWeather data={HourlyDataRequest.current} location={HourlyDataRequest.location} />
-    </div>
+    <section className='flex flex-col gap-4'>
+      <CurrentWeather data={forecast} />
+      <Forecast data={forecast.forecast.forecastday} />
+    </section>
   );
 }
