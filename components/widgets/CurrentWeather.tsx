@@ -23,11 +23,11 @@ export default function CurrentWeather({ data }: any) {
             <span className="font-semibold text-base">{data.forecast.forecastday[0].day.condition.text}</span>
 
             <div className="flex gap-4 text-[#737373]">
-                <div className="flex gap-1">
+                <div className="flex gap-1 items-center">
                     <ArrowUp className="w-[20px]" />
                     {Math.floor(data.forecast.forecastday[0].day.maxtemp_c)}°
                 </div>
-                <div className="flex gap-1">
+                <div className="flex gap-1 items-center">
                     <ArrowDown className="w-[20px]" />
                     {Math.floor(data.forecast.forecastday[0].day.mintemp_c)}°
                 </div>
