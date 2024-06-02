@@ -6,7 +6,7 @@ const getForecastData = async ({
     longitude: number
 }) => {
     const data = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=0308eed4e91a4101a55124543241704&q=${latitude},${longitude}&lang=fr&days=10&aqi=yes&alerts=yes`
+        `http://api.weatherapi.com/v1/forecast.json?key=0308eed4e91a4101a55124543241704&q=${latitude},${longitude}&lang=en&days=10&aqi=yes&alerts=yes`
     )
 
     if (!data.ok || data.status !== 200)
