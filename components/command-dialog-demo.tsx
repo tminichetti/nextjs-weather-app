@@ -65,7 +65,6 @@ export function CommandDialogDemo({ hideOnHomePage }: { hideOnHomePage?: boolean
 
                 getGeocode({ address: description, language: 'en' }).then((results) => {
                     const { lat, lng } = getLatLng(results[0])
-                    console.log('🚀 ~ getGeocode ~ results[0]:', results[0]);
                     setLatAndLng(lat.toString(), lng.toString())
 
                     router.push(`/search?lat=${lat}&lon=${lng}&city=${results[0].formatted_address.split(',')[0]}`)
