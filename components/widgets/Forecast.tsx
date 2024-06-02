@@ -20,7 +20,7 @@ export default function Forecast({ data }: any) {
                     const maxDayPercent = 100 - (((Math.floor(day.day.maxtemp_c) - minTempForecast) / range) * 100);
 
                     return <div className="flex justify-between w-full h-full items-center" key={day.date}>
-                        <span>{index === 0 ? "Today" : capitalizeFirstLetter(new Date(day.date).toLocaleString('fr-FR', { weekday: 'short' }))}</span>
+                        <span>{index === 0 ? "Today" : capitalizeFirstLetter(new Date(day.date).toLocaleString('en-US', { weekday: 'short' }))}</span>
 
                         <Image
                             src={`https:${day.day.condition.icon}`}

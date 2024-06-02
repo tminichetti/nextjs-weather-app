@@ -2,7 +2,26 @@ import { Location } from "./types";
 
 export const DEFAULT_LOCATION: Location = {
     coord: {
-        latitude: 41.92,
-        longitude: 8.73,
+        lat: "41.92",
+        lon: "8.73",
     },
+    city: "Ajaccio",
 };
+
+export const DEFAULT_SUGGESTIONS = [
+    {
+        description: "London, United Kingdom",
+    },
+    {
+        description: "Paris, France",
+    },
+    {
+        description: "Amsterdam, Netherlands",
+    },
+    {
+        description: "Dublin, Ireland",
+    },
+    {
+        description: "Lisbon, Portugal",
+    },
+]

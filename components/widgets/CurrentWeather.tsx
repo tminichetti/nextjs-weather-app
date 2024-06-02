@@ -8,10 +8,10 @@ export default function CurrentWeather({ data }: any) {
     const initial = new Date();
 
     return (
-        <Card className="min-h-[200px] flex flex-col justify-between h-fit w-full p-4 font-semibold text-lg">
+        <Card className="min-h-[200px] flex flex-col justify-between h-fit w-full p-4 font-semibold text-lg lg:h-auto">
             <div>
                 <div className="flex justify-between">
-                    <span>{capitalizeFirstLetter(initial.toLocaleString('fr-FR', { weekday: 'long' }))}</span>
+                    <span>{capitalizeFirstLetter(initial.toLocaleString('en-US', { weekday: 'long' }))}</span>
                     <Clock initial={initial} timezone={initial.getTimezoneOffset()} />
                 </div>
                 <span className="flex">{data.location.name}<Navigation width={16} height={16} /></span>
