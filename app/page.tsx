@@ -5,6 +5,9 @@ import { CloudSun } from 'lucide-react';
 
 export default function Home() {
 
+  console.log(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)
+  console.log(process.env.NEXT_PUBLIC_WEATHER_API_KEY)
+
   return (
     <div className="flex items-center justify-center absolute left-1/2 top-1/2 translate-y-[-50%] translate-x-[-50%]">
       <Card className="p-8 rounded-xl shadow-lg max-w-sm w-full text-center">
