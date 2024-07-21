@@ -12,7 +12,7 @@ export default function Forecast({ data }: any) {
 
     return (
         <Card className="p-4 flex flex-col gap-2">
-            <span className="flex gap-2"><Calendar width={16} />10-Day Forecast</span>
+            <span className="flex gap-2"><Calendar width={16} />3-Day Forecast</span>
 
             <div className="flex flex-col gap-2">
                 {data.map((day: any, index: number) => {
