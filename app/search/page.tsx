@@ -13,7 +13,7 @@ export async function generateMetadata({
 
     return {
         title: `${city} - Weather Forecast`,
-        description: `${city} weather forecast with current conditions, wind, air quality, and what to expect for the next 10 days.`,
+        description: `${city} weather forecast with current conditions, wind, air quality, and what to expect for the next 3 days.`,
     }
 }
 
