@@ -8,6 +8,8 @@ import { Wind } from "./Wind"
 import { Sunset } from "./Sunset"
 import { Precipitation } from "./Precipitation"
 import { AirQuality } from "./AirQuality"
+import { HourlyWeather } from "./HourlyWeather"
+import { Map } from "./Map"
 
 interface IWeatherWidgetsProps {
     forecast: ForecastRootObject;
@@ -20,6 +22,7 @@ export const WeatherWidgets = ({ forecast }: IWeatherWidgetsProps) => {
             <AirQuality pollution={forecast.current.air_quality["gb-defra-index"]} />
             <Wind speed={forecast.current.wind_kph} degree={forecast.current.wind_degree} />
             <UVIndex index={forecast.current.uv} />
+            <HourlyWeather forecastday={forecast.forecast.forecastday} />
             <FeelsLike temperature={Math.round(forecast.current.feelslike_c)} currentTemp={Math.round(forecast.current.temp_c)} />
             <Humidity percent={forecast.current.humidity} />
             <Visibility distance={forecast.current.vis_km} />

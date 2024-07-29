@@ -4,6 +4,7 @@ import Forecast from '@/components/widgets/Forecast';
 import { WeatherWidgets } from '@/components/widgets/WeatherWidgets';
 import { Metadata } from 'next';
 import { ForecastRootObject } from '@/interfaces/IForecast';
+import { Map } from '@/components/widgets/Map';
 
 export async function generateMetadata({
     searchParams,
@@ -42,6 +43,7 @@ export default async function SearchPage(
             </div>
             <div className='grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4'>
                 <WeatherWidgets forecast={forecast} />
+                {/* <Map /> */}
             </div>
         </section>
     );

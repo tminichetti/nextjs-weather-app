@@ -20,7 +20,7 @@ export default function Forecast({ data }: any) {
                     const maxDayPercent = 100 - (((Math.floor(day.day.maxtemp_c) - minTempForecast) / range) * 100);
 
                     return <div className="flex justify-between w-full h-full items-center" key={day.date}>
-                        <span>{index === 0 ? "Today" : capitalizeFirstLetter(new Date(day.date).toLocaleString('en-US', { weekday: 'short' }))}</span>
+                        <span className="grow">{index === 0 ? "Today" : capitalizeFirstLetter(new Date(day.date).toLocaleString('en-US', { weekday: 'short' }))}</span>
 
                         <Image
                             src={`https:${day.day.condition.icon}`}
@@ -29,7 +29,7 @@ export default function Forecast({ data }: any) {
                             height={32}
                         />
 
-                        <div className="flex gap-2 w-[60%] items-center">
+                        <div className="flex gap-2 w-[60%] ml-4 items-center">
                             <span>{Math.floor(day.day.mintemp_c)}°</span>
                             <div className="flex w-full h-1.5 bg-primary/20 rounded-full grow max-w-[17rem]">
                                 <div className='relative w-full h-1.5 rounded-full from-green-300 to-blue-400 bg-gradient-to-l' style={{ marginLeft: `${minDayPercent}%`, marginRight: `${maxDayPercent}%` }}></div>
