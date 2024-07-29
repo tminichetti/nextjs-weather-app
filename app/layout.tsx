@@ -49,7 +49,7 @@ export default function RootLayout({
 							<CodeIcon className="h-5 w-5" />
 							<span>with</span>
 							<HeartIcon className="h-4 w-4 group-hover:text-red-500" />
-							<span>in Ajaccio</span>
+							<span>by Thomas Minichetti</span>
 						</div>
 					</footer>
 				</ThemeProvider>
