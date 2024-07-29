@@ -3,6 +3,7 @@ import CurrentWeather from '@/components/widgets/CurrentWeather';
 import Forecast from '@/components/widgets/Forecast';
 import { WeatherWidgets } from '@/components/widgets/WeatherWidgets';
 import { Metadata } from 'next';
+import { ForecastRootObject } from '@/interfaces/IForecast';
 
 export async function generateMetadata({
     searchParams,
@@ -17,7 +18,6 @@ export async function generateMetadata({
     }
 }
 
-
 interface searchParamsProps {
     lat: string
     lon: string
@@ -27,7 +27,7 @@ interface searchParamsProps {
 export default async function SearchPage(
     { searchParams }: { searchParams: searchParamsProps }
 ) {
-    const forecast: any = await getForecastData({
+    const forecast: ForecastRootObject = await getForecastData({
         latitude: Number(searchParams.lat),
         longitude: Number(searchParams.lon)
     })
@@ -35,11 +35,13 @@ export default async function SearchPage(
     if (!searchParams || !forecast) return null
 
     return (
-        <section className='flex flex-col gap-4 lg:grid lg:grid-cols-4'>
-            <CurrentWeather data={forecast} />
-            <Forecast data={forecast.forecast.forecastday} />
-            <div className='col-span-2 h-auto'>
-                <WeatherWidgets data={forecast} />
+        <section className='flex flex-col gap-4 md:flex-row'>
+            <div className='flex w-full min-w-[18rem] flex-col gap-4 md:w-1/2'>
+                <CurrentWeather data={forecast} />
+                <Forecast data={forecast.forecast.forecastday} />
+            </div>
+            <div className='grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4'>
+                <WeatherWidgets forecast={forecast} />
             </div>
         </section>
     );

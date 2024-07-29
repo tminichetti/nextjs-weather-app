@@ -17,7 +17,7 @@ export default function CurrentWeather({ data }: any) {
                 <span className="flex">{data.location.name}<Navigation width={16} height={16} /></span>
             </div>
 
-            <span className="flex justify-center text-8xl font-bold py-8">{data.current.temp_c}°</span>
+            <span className="flex justify-center text-8xl font-bold py-8">{Math.round(data.current.temp_c)}°</span>
 
             <Image src={`https:${data.forecast.forecastday[0].day.condition.icon}`} alt="weather-icon" width={32} height={32} />
             <span className="font-semibold text-base">{data.forecast.forecastday[0].day.condition.text}</span>

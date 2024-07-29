@@ -33,7 +33,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<main className='container mx-auto flex min-h-screen flex-col px-4 md:px-8 py-4 gap-4 antialiased'>
+					<main className='container mx-auto flex min-h-screen flex-col p-4 md:px-8 gap-4 antialiased'>
 						<nav className="flex justify-end gap-4">
 							<CommandDialogDemo hideOnHomePage />
 							<ModeToggle />

@@ -1,11 +1,20 @@
-import { Droplets, Eye } from "lucide-react"
-import { Card } from "../ui/card"
+import { Eye } from "lucide-react";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 
 export const Visibility = ({ distance }: any) => {
+    const footerText = distance >= 10 ? "It's perfectly clear right now." : distance >= 5 ? "Good visibility." : "Poor visibility. Exercise caution while driving or moving around.";
+
     return (
-        <Card className="w-full p-4 h-48 justify-between">
-            <span className="flex flex-row items-center font-semibold text-sm text-neutral-600 dark:text-neutral-400 tracking-tight gap-2 mb-4"><Eye className="w-[16px]" />Visibility</span>
-            <span className="font-semibold md:text-lg">{distance} km</span>
+        <Card className="flex h-48 flex-col justify-between">
+            <CardHeader>
+                <CardTitle>
+                    <Eye className="w-[16px]" />Visibility
+                </CardTitle>
+            </CardHeader>
+            <CardContent>{distance} km</CardContent>
+            <CardFooter>
+                {footerText}
+            </CardFooter>
         </Card>
     )
 }

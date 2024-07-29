@@ -1,21 +1,29 @@
+import { ForecastRootObject } from "@/interfaces/IForecast"
 import { FeelsLike } from "./FeelsLike"
 import { Humidity } from "./Humidity"
 import { Pressure } from "./Pressure"
 import { UVIndex } from "./UVIndex"
 import { Visibility } from "./Visibility"
 import { Wind } from "./Wind"
+import { Sunset } from "./Sunset"
+import { Precipitation } from "./Precipitation"
 
-export const WeatherWidgets = ({ data }: any) => {
+interface IWeatherWidgetsProps {
+    forecast: ForecastRootObject;
+}
 
+export const WeatherWidgets = ({ forecast }: IWeatherWidgetsProps) => {
 
     return (
-        <section className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 h-full gap-4 lg:content-around">
-            <Wind speed={data.current.wind_kph} degree={data.current.wind_degree} />
-            <UVIndex index={data.current.uv} />
-            <FeelsLike temperature={data.current.feelslike_c} />
-            <Humidity percent={data.current.humidity} />
-            <Visibility distance={data.current.vis_km} />
-            <Pressure pressure={data.current.pressure_mb} />
-        </section>
+        <>
+            <Wind speed={forecast.current.wind_kph} degree={forecast.current.wind_degree} />
+            <UVIndex index={forecast.current.uv} />
+            <FeelsLike temperature={Math.round(forecast.current.feelslike_c)} currentTemp={Math.round(forecast.current.temp_c)} />
+            <Humidity percent={forecast.current.humidity} />
+            <Visibility distance={forecast.current.vis_km} />
+            <Pressure pressure={forecast.current.pressure_mb} />
+            <Sunset astro={forecast.forecast.forecastday[0].astro} />
+            <Precipitation rain={forecast.current.precip_mm} />
+        </>
     )
 }

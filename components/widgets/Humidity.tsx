@@ -1,11 +1,20 @@
 import { Droplets } from "lucide-react"
-import { Card } from "../ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card"
 
 export const Humidity = ({ percent }: any) => {
+    const footerText = percent < 40 ? "Low humidity. It might feel dry." : percent < 70 ? "Moderate humidity. Comfortable conditions." : "High humidity. It might feel humid and uncomfortable.";
+
     return (
-        <Card className="w-full p-4 h-48 justify-between">
-            <span className="flex flex-row items-center font-semibold text-sm text-neutral-600 dark:text-neutral-400 tracking-tight gap-2 mb-4"><Droplets className="w-[16px]" />Humidity</span>
-            <span className="font-semibold md:text-lg">{percent}%</span>
+        <Card className="flex h-48 flex-col justify-between">
+            <CardHeader>
+                <CardTitle>
+                    <Droplets className="w-[16px]" />Humidity
+                </CardTitle>
+            </CardHeader>
+            <CardContent>{percent}%</CardContent>
+            <CardFooter>
+                {footerText}
+            </CardFooter>
         </Card>
     )
 }
