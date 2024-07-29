@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/themes-provider';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import Script from 'next/script';
 import { CommandDialogDemo } from '@/components/command-dialog-demo';
+import { CodeIcon, HeartIcon } from 'lucide-react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -40,6 +41,17 @@ export default function RootLayout({
 						</nav>
 						{children}
 					</main>
+					<footer className="py-4">
+						<div
+							className="group flex items-center justify-center gap-1 text-neutral-400 dark:text-neutral-600"
+							aria-hidden={true}
+						>
+							<CodeIcon className="h-5 w-5" />
+							<span>with</span>
+							<HeartIcon className="h-4 w-4 group-hover:text-red-500" />
+							<span>in Ajaccio</span>
+						</div>
+					</footer>
 				</ThemeProvider>
 				<TailwindIndicator />
 			</body>
